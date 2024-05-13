@@ -20,17 +20,20 @@ const genCompChoice = () => {
   };
 
   const showWinner = (userWin, userChoice, compChoice) => {
-    if (userWin) {
-      userScore++;
-      userScorePara.innerText = userScore;
-      msg.innerText = `You win! Your ${userChoice} beats ${compChoice}`;
-      msg.style.backgroundColor = "green";
-    } else {
-      compScore++;
-      compScorePara.innerText = compScore;
-      msg.innerText = `You loose ${compChoice} beats your ${userChoice}`;
-      msg.style.backgroundColor = "red";
-    }
+  const compChoiceText = `Computer chose ${compChoice}.`;
+  if (userWin) {
+    userScore++;
+    userScorePara.innerText = userScore;
+    msg.innerText = `You win! Your ${userChoice} beats ${compChoice}. ${compChoiceText}`;
+    msg.style.backgroundColor = "green";
+  } else {
+    compScore++;
+    compScorePara.innerText = compScore;
+    msg.innerText = `You lose! ${compChoice} beats your ${userChoice}. ${compChoiceText}`;
+    msg.style.backgroundColor = "red";
+  }
+};
+
   };
   const playGame = (userChoice) => {
     //Generate computer choice
